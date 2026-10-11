@@ -52,3 +52,10 @@ The trade-off: this library intercepts only function-valued properties. Reads of
 - **Replay does not await async methods.** `replay` calls each method in log order and moves on. If you need serialised async replay, consume the log directly.
 - **Rejections halt replay.** A `rejected` record causes `replay` to throw the original error. Filter the log first if you want to tolerate failures.
 - **Thenables, not just Promises.** Any object with a `.then` function is treated as async and recorded on settlement.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
