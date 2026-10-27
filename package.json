@@ -1,6 +1,6 @@
 {
   "name": "method-call-recorder",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Proxies an object so that every method call, its arguments, and its synchronous or asynchronous return are appended to a replayable log.",
   "type": "module",
   "main": "src/index.js",
